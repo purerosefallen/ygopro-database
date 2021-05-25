@@ -2,3 +2,5 @@ pics
 *.7z
 *.zip
 *.rar
+lflist.conf
+*.sql
