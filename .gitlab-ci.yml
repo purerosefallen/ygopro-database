@@ -36,6 +36,6 @@ upload_to_minio_rainbow:
   tags: 
     - linux
   script:
-    - aws s3 --endpoint=https://rainbow-minio.moestart.com:9777 sync --delete dist/ s3://koishipro/ygopro-database
+    - aws s3 --endpoint=https://rainbow-minio.moestart.com:9777 sync --delete dist/ s3://mycard/koishipro/ygopro-database
   only:
     - master
