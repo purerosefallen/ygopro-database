@@ -9,7 +9,7 @@ get_lflist:
   stage: build
   script:
     - apt update;apt -y install wget sqlite3
-    - wget -O lflist.conf https://code.mycard.moe/mycard/ygopro/-/raw/master/lflist.conf
+    - wget -O lflist.conf https://code.moenext.com/mycard/ygopro/-/raw/develop/lflist.conf
     - ls locales | xargs -I {} bash -c 'cp ./lflist.conf ./locales/{}/ ; sqlite3 ./locales/{}/cards.cdb .dump > ./locales/{}/cards.sql'
     - cp -rf locales dist
   artifacts:
@@ -25,6 +25,6 @@ upload_to_minio_latest:
   tags: 
     - linux
   script:
-    - aws s3 --endpoint=https://minio.mycard.moe:9000 sync --delete dist/ s3://mycard/koishipro/ygopro-database
+    - aws s3 --endpoint=https://minio.moenext.com:9000 sync --delete dist/ s3://mycard/koishipro/ygopro-database
   only:
     - master
